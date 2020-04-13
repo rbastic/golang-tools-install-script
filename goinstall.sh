@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-VERSION="1.14"
+VERSION="1.14.2"
 
 [ -z "$GOROOT" ] && GOROOT="$HOME/.go"
 [ -z "$GOPATH" ] && GOPATH="$HOME/go"
@@ -85,7 +85,7 @@ PACKAGE_NAME="go$VERSION.$PLATFORM.tar.gz"
 
 echo "Downloading $PACKAGE_NAME ..."
 if hash wget 2>/dev/null; then
-    wget https://storage.googleapis.com/golang/$PACKAGE_NAME -O /tmp/go.tar.gz
+    wget --quiet https://storage.googleapis.com/golang/$PACKAGE_NAME -O /tmp/go.tar.gz
 else
     curl -o /tmp/go.tar.gz https://storage.googleapis.com/golang/$PACKAGE_NAME
 fi
